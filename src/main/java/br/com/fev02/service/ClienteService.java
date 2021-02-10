@@ -10,9 +10,9 @@ public interface ClienteService {
 	Cliente salvar(Cliente usuario);
 
 	List<Cliente> buscarListaDeClientes();
-	
+
 	List<ClienteDTO> buscarListaDeClientesDTO();
-	
-	
+
+	ClienteDTO buscarClientePorId(Long id);
 
 }

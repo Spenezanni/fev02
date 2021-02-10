@@ -34,7 +34,6 @@ public class Cliente {
 	}
 
 	public Cliente(Long id, String nome, String cpf, String descricao, Endereco endereco) {
-		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;

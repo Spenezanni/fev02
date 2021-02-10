@@ -16,7 +16,11 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
 	List<Cliente> findAll();
 
-	@Query("SELECT c FROM Cliente c WHERE c.cliente.nome = :nome")
-	List<Cliente> carregarPorNomeDoCliente(@Param("nome") String nome);
+	/*
+	 * @Query("SELECT c FROM Cliente c WHERE c.cliente.nome = :nome") List<Cliente>
+	 * carregarPorNomeDoCliente(@Param("nome") String nome);
+	 */
+
+	Cliente findById(Long id);;
 
 }

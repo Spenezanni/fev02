@@ -13,8 +13,13 @@ import br.com.fev02.service.ClienteService;
 @Service
 public class ClienteServiceImpl implements ClienteService {
 
-	@Autowired
+	
 	private ClienteRepository clienteRepository;
+	
+	@Autowired
+	public ClienteServiceImpl(ClienteRepository clienteRepository) {
+		this.clienteRepository = clienteRepository;
+	}
 
 	@Override
 	public Cliente salvar(Cliente cliente) {
@@ -30,6 +35,12 @@ public class ClienteServiceImpl implements ClienteService {
 	public List<ClienteDTO> buscarListaDeClientesDTO() {
 		List<Cliente> clientes = clienteRepository.findAll();
 		return ClienteDTO.converter(clientes);
+	}
+
+	@Override
+	public ClienteDTO buscarClientePorId(Long id) {
+		Cliente cliente = this.clienteRepository.findById(id);
+		return new ClienteDTO(cliente);
 	}
 
 }

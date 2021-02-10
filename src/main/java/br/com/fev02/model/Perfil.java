@@ -11,7 +11,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @Table(name = "PERFIL")
-public class Perfil implements GrantedAuthority{
+public class Perfil implements GrantedAuthority {
 
 	private static final long serialVersionUID = 1L;
 
@@ -22,9 +22,7 @@ public class Perfil implements GrantedAuthority{
 	@Column(name = "NOME")
 	private String nome;
 
-
 	public Perfil(Long id, String nome) {
-		super();
 		this.id = id;
 		this.nome = nome;
 	}
