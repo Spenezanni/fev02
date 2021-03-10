@@ -1,6 +1,4 @@
 package br.com.fev02.security;
-
-
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +26,4 @@ public class CustomUserDetailService implements UserDetailsService {
 		
 		throw new UsernameNotFoundException("Dados Inválidos!");
 	}
-
-	
 }

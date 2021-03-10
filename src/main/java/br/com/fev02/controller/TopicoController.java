@@ -32,6 +32,13 @@ public class TopicoController {
 		return this.topicoService.buscarDescricaoDoTopico(id);
 	}
 	
+	/*
+	 * @GetMapping(path = "/descricao/{id}") public ResponseEntity<TopicoDTO>
+	 * descricaoTopico(@PathVariable Long id) { return new
+	 * ResponseEntity<>(topicoService.buscarDescricaoDoTopico(id),
+	 * HttpStatus.CREATED); }
+	 */
+	
 	@GetMapping(path = "/detalhes/{id}")
 	public DetalhesDoTopicoDTO detalharTopico(@PathVariable Long id) {
 		return this.topicoService.buscarDetalhesDoTopico(id);

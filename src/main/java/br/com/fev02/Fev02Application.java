@@ -11,6 +11,7 @@ import org.springframework.data.web.config.EnableSpringDataWebSupport;
 @EnableSpringDataWebSupport
 @SpringBootApplication
 public class Fev02Application {
+	
 
 	public static void main(String[] args) {
 		SpringApplication.run(Fev02Application.class, args);

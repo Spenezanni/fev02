@@ -11,9 +11,9 @@ import br.com.fev02.repository.ClienteRepository;
 
 public class HelloWorldMockito {
 	
+	ClienteRepository mock = Mockito.mock(ClienteRepository.class);
 	@Test
 	void hello() {
-	 ClienteRepository mock = Mockito.mock(ClienteRepository.class);
 	 List<Cliente> clientes = mock.findAll();
 	 Assert.assertTrue(clientes.isEmpty());
 	}
