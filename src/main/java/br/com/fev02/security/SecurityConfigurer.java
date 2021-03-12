@@ -20,6 +20,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private CustomUserDetailService customUserDetailService;
 	
+	@Autowired
+	private TokenService tokenService;
 	
 	@Override
 	@Bean
@@ -41,7 +43,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 				.antMatchers("/auth").permitAll()
 				.anyRequest().authenticated().and().csrf().disable()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-				.and().addFilterBefore(new AutenticacaoViaTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+				.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService), UsernamePasswordAuthenticationFilter.class);
 	}
 
 	public static void main(String[] args) {
