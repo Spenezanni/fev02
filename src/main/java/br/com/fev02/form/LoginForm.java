@@ -1,29 +1,30 @@
- package br.com.fev02.form;
+package br.com.fev02.form;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 public class LoginForm {
-	
-	private String email;
+
+	private String nome;
 	private String senha;
-	
-	
-	public String getEmail() {
-		return email;
+
+	public String getNome() {
+		return nome;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
+
 	public String getSenha() {
 		return senha;
 	}
+
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
 	public UsernamePasswordAuthenticationToken converter() {
-		return new UsernamePasswordAuthenticationToken(email, senha);
+		return new UsernamePasswordAuthenticationToken(nome, senha);
 	}
-	
-	
 
 }

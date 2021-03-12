@@ -23,7 +23,7 @@ public class TokenService {
 		
 		User userLogado = (User) authentication.getPrincipal();
 		Date current   = new Date(); 
-		Date dateExpiration = new Date(current.getTime() + expiration); 
+		Date dateExpiration = new Date(current.getTime() + Long.parseLong(expiration)); 
 		
 		return Jwts.builder()
 				.setIssuer("API fev02")
