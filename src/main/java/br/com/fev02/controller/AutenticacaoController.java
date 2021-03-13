@@ -1,6 +1,5 @@
 package br.com.fev02.controller;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +27,7 @@ public class AutenticacaoController {
 	private TokenService tokenService;
 
 	@PostMapping
-	public ResponseEntity<TokenDto> autenticar(@RequestBody @Valid LoginForm form) {
+	public ResponseEntity<TokenDto> autenticar(@RequestBody LoginForm form) {
 		
 		UsernamePasswordAuthenticationToken dadosLogin = form.converter();
 		
@@ -39,7 +38,7 @@ public class AutenticacaoController {
 			return ResponseEntity.ok(new TokenDto(token, "Bearer "));
 		} catch (AuthenticationException e) {
 			return ResponseEntity.noContent().build();
-		}
+		}	
 	}
 	
 }
