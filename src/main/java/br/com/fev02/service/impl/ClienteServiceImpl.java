@@ -3,6 +3,8 @@ package br.com.fev02.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import br.com.fev02.dto.ClienteDTO;
@@ -13,9 +15,8 @@ import br.com.fev02.service.ClienteService;
 @Service
 public class ClienteServiceImpl implements ClienteService {
 
-	
 	private ClienteRepository clienteRepository;
-	
+
 	@Autowired
 	public ClienteServiceImpl(ClienteRepository clienteRepository) {
 		this.clienteRepository = clienteRepository;
@@ -41,6 +42,12 @@ public class ClienteServiceImpl implements ClienteService {
 	public ClienteDTO buscarClientePorId(Long id) {
 		Cliente cliente = this.clienteRepository.findById(id);
 		return new ClienteDTO(cliente);
+	}
+
+	@Override
+	public Page<ClienteDTO> buscarListaDeClientesDTOPageble(Pageable paginacao) {
+		Page<Cliente> clientes = clienteRepository.findAll(paginacao);
+		return ClienteDTO.converterPage(clientes);
 	}
 
 }
